@@ -3,26 +3,23 @@
 #include <string.h>
 #include <unistd.h>
 
-
-
 int main() {
   
   //Get command
   printf("What would you like to do?\n");
   char response[50]; 
   fgets(response, sizeof(response) - 1, stdin);
-  printf("%s", response);
   
   //Parse command
   char *s = response;
   char *command [10];
 
-  int i=0;
+  int i = 0;
   while (s) {
-    command[i] = strsep(&s,"  ");
+    command[i] = strsep(&s," \n ");
     i++;
   }
-  command[i] = NULL;
+  command[i - 1] = NULL;
 
   /*
   while (i) {
